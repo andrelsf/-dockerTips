@@ -1,0 +1,19 @@
+version: "3"
+
+services: 
+  c2:
+    container_name: backend
+    image: alpine
+    command: sleep 99999
+    networks: 
+      - net1
+      - net-backend
+
+networks:
+  net1:
+    external: 
+      name: net1
+  net-backend:
+    driver: bridge
+    ipam:
+      driver: default

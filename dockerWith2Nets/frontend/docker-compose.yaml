@@ -1,0 +1,19 @@
+version: "3.5"
+
+services: 
+  c1:
+    container_name: c1
+    image: alpine
+    command: sleep 99999
+    networks: 
+      - net1
+
+networks: 
+  net1:
+    name: net1
+    driver: bridge
+    external: true
+    ipam: 
+      driver: default
+      config:
+        - subnet: 172.32.0.0/24
